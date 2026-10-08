@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SpamShield — SMS Spam Detector</title>
+  <meta name="description" content="Paste any SMS and see whether it is spam. Naive Bayes, k-NN and a decision tree trained on the SMS Spam Collection, with text preprocessing and Apriori spam patterns." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M16 2l11 4v9c0 7-5 12-11 15C10 27 5 22 5 15V6z' fill='%234338ca'/><path d='M11 16l4 4 7-8' stroke='white' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2l11 4v9c0 7-5 12-11 15C10 27 5 22 5 15V6z" fill="#4338ca"/><path d="M11 16l4 4 7-8" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div><h1>SpamShield</h1><p>SMS spam &amp; scam detector</p></div>
+    </div>
+    <nav>
+      <a href="#check">Check a message</a>
+      <a href="#data">Dataset</a>
+      <a href="#models">Models</a>
+      <a href="#patterns">Spam patterns</a>
+      <a class="gh" href="https://github.com/shivangperplexity/sms-spam-detector" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- CHECKER -->
+    <section id="check" class="hero">
+      <div class="hero-left">
+        <h2>Is this message spam?</h2>
+        <p class="lead">Paste an SMS. Three models trained on 5,159 real messages give their verdict, and the words that tipped the balance are highlighted.</p>
+        <textarea id="msg" rows="4" placeholder="Paste a message…" aria-label="Message to check"></textarea>
+        <div class="row">
+          <button class="btn primary" id="btnCheck" disabled>Check message</button>
+          <span class="hint" id="status">Training models…</span>
+        </div>
+        <div class="examples" id="examples"></div>
+      </div>
+      <div class="verdict card" id="verdict">
+        <div class="v-head">
+          <div class="v-badge" id="vBadge">–</div>
+          <div><div class="v-title" id="vTitle">Waiting for a message</div><div class="v-sub" id="vSub"></div></div>
+        </div>
+        <div class="meter"><div id="vMeter"></div><span class="mid"></span></div>
+        <div class="votes" id="votes"></div>
+        <div class="feats-head">Message features used by the decision tree</div>
+        <div class="feats" id="feats"></div>
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <div class="card">
+        <div class="card-head"><h3>Why? — word evidence (Naive Bayes)</h3><span class="hint">red pushes towards spam, green towards ham</span></div>
+        <div class="highlight" id="highlight"></div>
+        <div class="evidence" id="evidence"></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h3>Most similar messages (k-NN, k = 5)</h3><span class="hint">cosine similarity on TF-IDF</span></div>
+        <ol class="neighbours" id="neighbours"></ol>
+        <div class="card-head sub"><h3>Decision-tree path</h3></div>
+        <ol class="treepath" id="treepath"></ol>
+      </div>
+    </section>
+
+    <!-- DATA -->
+    <section id="data" class="block">
+      <div class="section-title"><span class="num">1</span><div><h2>Dataset &amp; preprocessing</h2><p>UCI SMS Spam Collection — 5,574 English SMS labelled ham or spam.</p></div></div>
+      <div class="kpis" id="kpis"></div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head"><h3>Message length by class</h3><span class="hint">characters</span></div>
+          <div id="lenChart"></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>Preprocessing pipeline</h3><span class="hint">applied to the message above</span></div>
+          <ol class="pipeline" id="pipeline"></ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODELS -->
+    <section id="models" class="block">
+      <div class="section-title"><span class="num">2</span><div><h2>Classification models</h2><p>Stratified 80 / 20 train–test split. Spam is the positive class.</p></div></div>
+      <div class="card">
+        <div class="table-wrap"><table class="tbl" id="metricTable"></table></div>
+      </div>
+      <div class="grid-3" id="cms"></div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head"><h3>Naive Bayes decision threshold</h3><b id="thrV">0.50</b></div>
+          <input type="range" id="thr" min="5" max="95" value="50" aria-label="Threshold" />
+          <div class="thr-grid" id="thrStats"></div>
+          <p class="note">Raising the threshold flags fewer messages: fewer genuine messages land in spam (higher precision) but more spam slips through (lower recall).</p>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>Learned decision tree</h3><span class="hint">Gini impurity, depth ≤ 4</span></div>
+          <div class="tree" id="tree"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PATTERNS -->
+    <section id="patterns" class="block">
+      <div class="section-title"><span class="num">3</span><div><h2>What spam looks like</h2><p>Frequent words per class, and Apriori on the word-sets of spam messages.</p></div></div>
+      <div class="grid-2">
+        <div class="card"><div class="card-head"><h3>Top words in spam</h3><span class="hint">% of spam messages</span></div><div class="bars" id="spamWords"></div></div>
+        <div class="card"><div class="card-head"><h3>Top words in ham</h3><span class="hint">% of ham messages</span></div><div class="bars" id="hamWords"></div></div>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <h3>Spam signatures — association rules</h3>
+          <label class="ctl">Min support <input type="range" id="sup" min="3" max="15" value="5" /> <b id="supV">5%</b></label>
+        </div>
+        <p class="hint" id="aprMeta"></p>
+        <div class="table-wrap"><table class="tbl" id="rulesTable"></table></div>
+      </div>
+    </section>
+  </main>
+  <footer class="foot">SpamShield · Data Mining &amp; Analytics mini project · Dataset: Almeida &amp; Hidalgo, SMS Spam Collection (UCI Machine Learning Repository) · runs entirely in your browser</footer>
+
+  <script src="js/spam.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
