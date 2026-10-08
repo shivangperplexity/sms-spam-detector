@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "SpamShield for Gmail",
   "short_name": "SpamShield",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Sorts your Gmail inbox into Important (OTPs, verification links), Genuine, Likely spam and Spam/Marketing with an on-device ML model.",
   "icons": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
   "action": {
@@ -16,7 +16,8 @@
       "matches": ["https://mail.google.com/*"],
       "js": ["model.js", "classifier.js", "content.js"],
       "css": ["content.css"],
-      "run_at": "document_idle"
+      "run_at": "document_idle",
+      "all_frames": false
     }
   ]
 }

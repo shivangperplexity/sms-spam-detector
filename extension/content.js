@@ -46,7 +46,7 @@
   }
   function save(patch) {
     S = { ...S, ...patch };
-    if (store) store.set(patch);
+    try { if (store) store.set(patch); } catch (e) { /* extension was reloaded */ }
   }
   if (store) chrome.storage.onChanged.addListener((ch, area) => {
     if (area !== "sync") return;
@@ -272,19 +272,33 @@
     if (force || sig !== lastCounts) {
       lastCounts = sig;
       clearTimeout(statsTimer);
-      statsTimer = setTimeout(() => chrome.storage && chrome.storage.local.set({ lastCounts: counts, lastSeen: Date.now() }), 500);
+      statsTimer = setTimeout(() => { try { chrome.storage.local.set({ lastCounts: counts, lastSeen: Date.now() }); } catch (e) { /* extension was reloaded */ } }, 500);
     }
+  }
+
+  function safeRefresh(force) {
+    try { refresh(force); } catch (e) { console.warn("[SpamShield]", e); }
   }
 
   let pending = false;
   function schedule() {
     if (pending) return;
     pending = true;
-    setTimeout(() => { pending = false; refresh(); }, 250);
+    setTimeout(() => { pending = false; safeRefresh(); }, 300);
   }
 
-  loadSettings().then(() => {
-    refresh(true);
+  // Start only once Gmail's own app has finished loading (its main pane exists), so
+  // SpamShield never touches Gmail's loading screen, error pages or sign-in pages.
+  function whenGmailReady(cb) {
+    const t0 = Date.now();
+    (function poll() {
+      if (document.querySelector('div[role="main"]')) return cb();
+      if (Date.now() - t0 < 120000) setTimeout(poll, 700);
+    })();
+  }
+
+  whenGmailReady(() => loadSettings().then(() => {
+    safeRefresh(true);
     new MutationObserver((muts) => {
       for (const m of muts) {
         const t = m.target;
@@ -292,7 +306,7 @@
         schedule();
         break;
       }
-    }).observe(document.body, { childList: true, subtree: true, characterData: true });
+    }).observe(document.body, { childList: true, subtree: true });
     window.addEventListener("hashchange", schedule);
-  });
+  }));
 })();
