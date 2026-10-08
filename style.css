@@ -176,3 +176,17 @@ input[type=range] { accent-color: var(--accent); width: 100%; }
 .safe li { margin: 6px 0; }
 .combos { display: flex; flex-wrap: wrap; gap: 8px; }
 .combos span { background: var(--spam-soft); color: #9f1239; border-radius: 20px; padding: 4px 10px; font-size: 12.5px; }
+
+/* Gmail extension */
+.card.ext { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+.card.ext img { width: 100%; border-radius: 10px; border: 1px solid var(--line); display: block; }
+.ext-side { display: flex; flex-direction: column; gap: 14px; }
+.ext-groups { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.ext-groups li { display: grid; grid-template-columns: 10px auto; column-gap: 8px; align-items: center; }
+.ext-groups i { width: 10px; height: 10px; border-radius: 50%; }
+.ext-groups span { grid-column: 2; color: var(--muted); font-size: 12.5px; }
+.g-imp { background: #1a56db; } .g-gen { background: #0e7a4b; } .g-lik { background: #e38b00; } .g-spm { background: #c0262d; }
+.ext-side .btn { text-align: center; text-decoration: none; }
+.ext-steps { margin: 0; padding-left: 18px; color: var(--ink); font-size: 13px; display: grid; gap: 4px; }
+.ext-steps code { font-family: var(--mono); font-size: 12px; background: #f0f0f6; padding: 1px 5px; border-radius: 5px; }
+@media (max-width: 860px) { .card.ext { grid-template-columns: 1fr; } }

@@ -17,6 +17,7 @@
     <nav>
       <a href="#check">Check a message</a>
       <a href="#patterns">Spam signs</a>
+      <a href="#gmail">Gmail extension</a>
       <a class="gh" href="https://github.com/shivangperplexity/sms-spam-detector" target="_blank" rel="noopener">GitHub</a>
     </nav>
   </header>
@@ -53,6 +54,30 @@
       <div class="card">
         <div class="card-head"><h3>Similar messages people received</h3></div>
         <ol class="neighbours" id="neighbours"></ol>
+      </div>
+    </section>
+
+    <!-- GMAIL EXTENSION -->
+    <section id="gmail" class="block">
+      <div class="section-title"><span class="num">@</span><div><h2>SpamShield for Gmail</h2><p>A Chrome extension that sorts your Gmail inbox right inside Gmail.</p></div></div>
+      <div class="card ext">
+        <img src="extension/screenshots/inbox.png" alt="Gmail inbox with SpamShield labels and filter bar" loading="lazy" />
+        <div class="ext-side">
+          <ul class="ext-groups">
+            <li><i class="g-imp"></i><b>Important</b><span>OTPs, verification links, password resets, sign-in alerts</span></li>
+            <li><i class="g-gen"></i><b>Genuine</b><span>People, college, orders, bank &amp; UPI alerts, bills</span></li>
+            <li><i class="g-lik"></i><b>Likely spam</b><span>Low but real spam or promotional score</span></li>
+            <li><i class="g-spm"></i><b>Spam</b><span>Marketing blasts, scams and phishing</span></li>
+          </ul>
+          <a class="btn primary" href="https://github.com/shivangperplexity/sms-spam-detector/raw/main/downloads/spamshield-gmail.zip">Download extension (.zip)</a>
+          <ol class="ext-steps">
+            <li>Unzip the file.</li>
+            <li>Open <code>chrome://extensions</code> and turn on <b>Developer mode</b>.</li>
+            <li>Click <b>Load unpacked</b> and pick the unzipped folder.</li>
+            <li>Open Gmail. Use the bar at the bottom to switch between groups.</li>
+          </ol>
+          <p class="note">Runs fully on your device. No email ever leaves your browser.</p>
+        </div>
       </div>
     </section>
 

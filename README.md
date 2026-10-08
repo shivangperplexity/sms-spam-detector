@@ -15,6 +15,17 @@ Mini project for **Data Mining and Analytics**.
 | Explanation | per-word log-likelihood ratio highlighting, nearest neighbours, decision-tree path |
 | Pattern mining | frequent words per class, **Apriori** association rules on spam word-sets (support, confidence, lift) |
 
+## Gmail extension
+
+**SpamShield for Gmail** (`extension/`) is a Chrome extension. It labels every email in Gmail as **Important** (OTPs, verification links), **Genuine**, **Likely spam** or **Spam** (marketing, scams, phishing). A floating filter bar lets you show one group at a time.
+
+The model is trained on about 141k emails and SMS and runs fully in the browser. On held-out test emails, about 98.7% land in the right group.
+
+- [Download the zip](downloads/spamshield-gmail.zip)
+- Install steps: [`extension/README.md`](extension/README.md)
+
+![SpamShield in Gmail](extension/screenshots/inbox.png)
+
 ## Dataset
 `data/sms_spam.tsv` — SMS Spam Collection v.1 (T. A. Almeida and J. M. Gómez Hidalgo), UCI Machine Learning Repository: 5,574 English SMS labelled `ham` or `spam` (5,159 after removing duplicates).
 

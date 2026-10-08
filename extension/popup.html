@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>SpamShield</title>
+<link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <img src="icons/icon48.png" alt="" width="28" height="28" />
+    <div><h1>SpamShield</h1><p>for Gmail</p></div>
+    <label class="switch" title="Turn SpamShield on or off"><input type="checkbox" id="enabled" /><span></span></label>
+  </header>
+
+  <section class="counts" id="counts">
+    <div class="c-important"><b id="n-important">–</b><span>Important</span></div>
+    <div class="c-genuine"><b id="n-genuine">–</b><span>Genuine</span></div>
+    <div class="c-likely"><b id="n-likely">–</b><span>Likely spam</span></div>
+    <div class="c-spam"><b id="n-spam">–</b><span>Spam</span></div>
+  </section>
+  <p class="fine" id="seen">Open Gmail to scan your inbox.</p>
+
+  <section>
+    <h2>Sensitivity</h2>
+    <div class="seg" id="sens">
+      <button data-v="relaxed">Relaxed</button>
+      <button data-v="balanced">Balanced</button>
+      <button data-v="strict">Strict</button>
+    </div>
+    <label class="row"><input type="checkbox" id="badges" /> Show a label on every email</label>
+  </section>
+
+  <section>
+    <h2>Test a message</h2>
+    <textarea id="probe" rows="3" placeholder="Paste a subject or email text…"></textarea>
+    <div class="probe-out" id="probeOut" hidden></div>
+  </section>
+
+  <section>
+    <h2>Senders <small>(manage from the label on any email)</small></h2>
+    <div class="lists">
+      <div><h3>Trusted</h3><ul id="trusted"></ul></div>
+      <div><h3>Always spam</h3><ul id="blocked"></ul></div>
+    </div>
+  </section>
+
+  <footer id="modelInfo"></footer>
+
+  <script src="model.js"></script>
+  <script src="classifier.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

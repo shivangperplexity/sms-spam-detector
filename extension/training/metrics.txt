@@ -1,0 +1,47 @@
+documents after dedupe: 140942
+train rows (incl. short views): 248056
+test rows: 33828
+vocabulary: 30000
+C=16
+
+              precision    recall  f1-score   support
+
+     genuine     0.9909    0.9882    0.9895     17002
+   important     1.0000    0.9986    0.9993      1448
+       promo     1.0000    0.9957    0.9979       940
+        spam     0.9859    0.9894    0.9876     14438
+
+    accuracy                         0.9894     33828
+   macro avg     0.9942    0.9930    0.9936     33828
+weighted avg     0.9894    0.9894    0.9894     33828
+
+           genuine  important  promo   spam
+genuine      16801          0      0    201
+important        0       1446      0      2
+promo            2          0    936      2
+spam           153          0      0  14285
+
+quantised accuracy: 0.9895
+per-source accuracy: {"enron": 0.9877, "phish_combined": 0.9916, "phish_kaggle": 0.9866, "sms": 0.9371, "synthetic": 1.0, "vayoa": 0.9919}
+
+label           genuine  important  promo   spam
+src                                             
+enron             14363          0      0  14026
+phish_combined    37082          0      0  42074
+phish_kaggle       5976          0      0   1462
+sms                4438          0      0    589
+synthetic          4295       4791   2669    462
+vayoa              4685       1237   1250   1543
+
+==== End-to-end check of the shipped JS extension (quantised model + rules), held-out test rows, full + snippet views ====
+relaxed bucket-correct 98.75% of 12000
+ genuine->spam 0.27%  genuine->likely 0.69%  spam missed(->genuine/important) 1.75%
+balanced bucket-correct 98.66% of 12000
+ genuine->spam 0.55%  genuine->likely 1.00%  spam missed(->genuine/important) 1.27%
+strict bucket-correct 98.50% of 12000
+ genuine->spam 0.79%  genuine->likely 1.49%  spam missed(->genuine/important) 0.81%
+
+Hand-written Gmail-style emails (training/realistic_test.json):
+42/42 correct
+Second hand-written set (training/holdout_test.json; 20/22 on first run, before the promo-cue and sign-in-alert rules were added):
+22/22 correct

@@ -1,0 +1,296 @@
+[
+{
+"from": "Google",
+"email": "no-reply@accounts.google.com",
+"subject": "Security alert",
+"text": "A new sign-in on Windows. We noticed a new sign-in to your Google Account on a Windows device. If this was you, you don't need to do anything. If not, we'll help you secure your account.",
+"expect": "important"
+},
+{
+"from": "HDFC Bank",
+"email": "alerts@hdfcbank.net",
+"subject": "OTP for your transaction",
+"text": "Dear Customer, 482913 is the OTP for your online transaction of Rs. 2,349.00 at AMAZON PAY. OTP is valid for 5 mins. Please do not share it with anyone.",
+"expect": "important"
+},
+{
+"from": "GitHub",
+"email": "noreply@github.com",
+"subject": "[GitHub] Please verify your device",
+"text": "Hey shivang! A sign in attempt requires further verification because we did not recognize your device. To complete the sign in, enter the verification code on the unrecognized device. Verification code: 719204",
+"expect": "important"
+},
+{
+"from": "Notion",
+"email": "notify@makenotion.com",
+"subject": "Your Notion login code",
+"text": "Here is your login code: 553-118. You can also click the magic link below to sign in. If you didn't try to sign in, you can safely ignore this email.",
+"expect": "important"
+},
+{
+"from": "Swiggy",
+"email": "no-reply@swiggy.in",
+"subject": "Reset your Swiggy password",
+"text": "We received a request to reset the password for your account. Click the link below to choose a new password. This link will expire in 30 minutes.",
+"expect": "important"
+},
+{
+"from": "Microsoft account team",
+"email": "account-security-noreply@accountprotection.microsoft.com",
+"subject": "Microsoft account security code",
+"text": "Please use the following security code for the Microsoft account sh***@gmail.com. Security code: 4471093. If you don't recognize the account, you can click here to remove your email address.",
+"expect": "important"
+},
+{
+"from": "LinkedIn",
+"email": "security-noreply@linkedin.com",
+"subject": "Shivang, please confirm your email address",
+"text": "Confirm your email address to finish setting up your account and get the most out of LinkedIn. Confirm your email",
+"expect": "important"
+},
+{
+"from": "DigiLocker",
+"email": "noreply@digilocker.gov.in",
+"subject": "DigiLocker one time password",
+"text": "Your one time password for DigiLocker sign in is 902114. It is valid for 10 minutes.",
+"expect": "important"
+},
+{
+"from": "Amazon.in",
+"email": "shipment-tracking@amazon.in",
+"subject": "Your Amazon.in order #403-1849302-5530731 has been shipped",
+"text": "Hello Shivang, your package with boAt Rockerz 450 will arrive Friday. Track your package. Order total Rs.1,299.00",
+"expect": "genuine"
+},
+{
+"from": "Prof. R. Mehta",
+"email": "rmehta@college.edu.in",
+"subject": "DAA mini project submission",
+"text": "Dear students, please submit your mini project report and the GitHub link by Monday 5 pm. Viva will be held on Wednesday in Lab 3. Regards, R. Mehta",
+"expect": "genuine"
+},
+{
+"from": "Aarav Sharma",
+"email": "aarav.sharma21@gmail.com",
+"subject": "notes for tomorrow?",
+"text": "hey can you send me the DMA unit 3 notes, i missed the lecture today. also are we meeting at the library at 11?",
+"expect": "genuine"
+},
+{
+"from": "ICICI Bank",
+"email": "credit_cards@icicibank.com",
+"subject": "Your ICICI Bank Credit Card statement for September",
+"text": "Your credit card statement is attached. Total amount due Rs 14,560.33. Minimum amount due Rs 730. Payment due date 18 Oct 2026.",
+"expect": "genuine"
+},
+{
+"from": "Google Calendar",
+"email": "calendar-notification@google.com",
+"subject": "Invitation: Project sync @ Thu 9 Oct 2026 4pm - 5pm (IST)",
+"text": "Riya Kapoor has invited you to this event. Join with Google Meet. Reply for shivang: Yes No Maybe",
+"expect": "genuine"
+},
+{
+"from": "IRCTC",
+"email": "ticketadmin@irctc.co.in",
+"subject": "Booking Confirmation on IRCTC, Train: 12951, 15-Oct-2026, 3A, NDLS - MMCT",
+"text": "PNR No. 2456781903. Passenger 1 CNF B2 34. Transaction ID 100004583921. Total fare 2,145.",
+"expect": "genuine"
+},
+{
+"from": "Zomato",
+"email": "noreply@zomato.com",
+"subject": "Your Zomato order from Haldiram's",
+"text": "Thank you for ordering from Haldiram's. Your order has been delivered. Order total 412. Rate your order.",
+"expect": "genuine"
+},
+{
+"from": "Paytm",
+"email": "no-reply@paytm.com",
+"subject": "Payment of Rs 150 to Delhi Metro successful",
+"text": "You paid Rs 150 to DMRC. UPI Ref No 3482938129. Debited from your State Bank of India account.",
+"expect": "genuine"
+},
+{
+"from": "Naukri",
+"email": "info@naukri.com",
+"subject": "Recruiter from Infosys viewed your profile",
+"text": "A recruiter viewed your profile for Software Engineer role in Bengaluru. Respond to recruiter.",
+"expect": "genuine"
+},
+{
+"from": "Riya Kapoor",
+"email": "riya.k@company.co",
+"subject": "Re: report draft",
+"text": "Thanks, I've added comments on section 4. Can we finalise by Friday? I'll share the slides after lunch.",
+"expect": "genuine"
+},
+{
+"from": "Google Drive",
+"email": "drive-shares-dm-noreply@google.com",
+"subject": "Document shared with you: \"DMA Lab Record\"",
+"text": "Aarav Sharma shared a document. Aarav Sharma has invited you to edit the following document: DMA Lab Record. Open",
+"expect": "genuine"
+},
+{
+"from": "Airtel",
+"email": "ebill@airtel.com",
+"subject": "Your Airtel bill for September 2026",
+"text": "Your Airtel postpaid bill of Rs 599 is generated. Due date 20 Oct 2026. Pay via Airtel Thanks app.",
+"expect": "genuine"
+},
+{
+"from": "Myntra",
+"email": "updates@myntra.com",
+"subject": "Big Fashion Festival is LIVE! 50-90% OFF 🔥",
+"text": "Top brands at unbelievable prices. Extra 10% off on HDFC cards. Shop now before the deals end! Unsubscribe",
+"expect": "spam"
+},
+{
+"from": "Flipkart",
+"email": "offers@flipkart.com",
+"subject": "Big Billion Days: iPhone at lowest price ever",
+"text": "Grab the best deals on mobiles, laptops and more. Limited stock. Shop now. You received this email because you subscribed to Flipkart offers. Unsubscribe",
+"expect": "spam"
+},
+{
+"from": "Swiggy",
+"email": "marketing@swiggy.in",
+"subject": "Flat 60% OFF on your next 3 orders 🍕",
+"text": "Hungry? Use code TRYNEW and get flat 60% off up to Rs 120. Valid till midnight. Order now!",
+"expect": "spam"
+},
+{
+"from": "Coursera",
+"email": "no-reply@m.mail.coursera.org",
+"subject": "Last chance: 40% off Coursera Plus",
+"text": "Get unlimited access to 7,000+ courses with Coursera Plus. Save 40% when you subscribe today. Offer ends soon.",
+"expect": "spam"
+},
+{
+"from": "Nykaa",
+"email": "newsletter@nykaa.com",
+"subject": "Pink Friday Sale starts NOW 💄",
+"text": "Up to 50% off on makeup, skincare and more + free gifts on orders above Rs 999. Shop the sale.",
+"expect": "spam"
+},
+{
+"from": "Ajio",
+"email": "ajio@mailers.ajio.com",
+"subject": "Your cart misses you! Extra 20% off inside",
+"text": "Items in your cart are selling fast. Complete your purchase now and get an extra 20% off with code CART20.",
+"expect": "spam"
+},
+{
+"from": "MakeMyTrip",
+"email": "deals@makemytrip.com",
+"subject": "Flights from Rs 1,499 | Diwali Travel Sale",
+"text": "Book domestic flights starting at Rs 1499 and get up to 25% off on hotels. Hurry, sale ends Sunday!",
+"expect": "spam"
+},
+{
+"from": "SBI Alert",
+"email": "sbi-kyc-update@secure-mail.xyz",
+"subject": "Your SBI YONO account will be blocked today",
+"text": "Dear customer your account will be suspended today please update your PAN card immediately by clicking the link http://sbi-yono-kyc.top/update to avoid blocking.",
+"expect": "spam"
+},
+{
+"from": "Income Tax Department",
+"email": "refund@itd-gov-refund.online",
+"subject": "Income tax refund of Rs 15,490 approved",
+"text": "You are eligible for a tax refund of Rs 15,490. Submit your bank details to receive the refund within 24 hours: http://incometax-refund.site/claim",
+"expect": "spam"
+},
+{
+"from": "Lucky Draw",
+"email": "winner@kbc-lottery.info",
+"subject": "Congratulations! You won 25 lakh in KBC lottery",
+"text": "Your mobile number has won Rs 25,00,000 in KBC lucky draw. To claim your prize contact our manager on WhatsApp and pay processing fee.",
+"expect": "spam"
+},
+{
+"from": "BSES",
+"email": "bill@bses-electric.co",
+"subject": "Electricity disconnection notice",
+"text": "Dear consumer your electricity power will be disconnected tonight at 9.30 pm because your previous month bill was not updated. Please immediately contact our electricity officer 9876543210",
+"expect": "spam"
+},
+{
+"from": "Netflix",
+"email": "support@netflix-billing-help.com",
+"subject": "Your membership has been suspended",
+"text": "We were unable to validate your billing information. Please update your payment details within 24 hours or your account will be closed. Update now",
+"expect": "spam"
+},
+{
+"from": "Crypto Gains",
+"email": "invest@cryptoprofit.biz",
+"subject": "Turn Rs 5,000 into Rs 1 lakh in 7 days",
+"text": "Guaranteed returns with our AI crypto trading bot. Thousands have already earned. Register free today, limited slots!",
+"expect": "spam"
+},
+{
+"from": "HR Team",
+"email": "hr.jobs.india@gmail.com",
+"subject": "Work from home job - earn 5000 daily",
+"text": "Part time job offer. Earn Rs 5000 daily by liking YouTube videos. No experience needed. Contact us on Telegram to start today.",
+"expect": "spam"
+},
+{
+"from": "DHL Express",
+"email": "track@dhl-parcel-delivery.top",
+"subject": "Your parcel is on hold",
+"text": "Your package could not be delivered due to unpaid customs duty of Rs 49. Pay now to release your parcel: http://dhl-in-track.site",
+"expect": "spam"
+},
+{
+"from": "Medium Daily Digest",
+"email": "noreply@medium.com",
+"subject": "Stories for you: The algorithms behind Google Maps",
+"text": "Today's highlights. The algorithms behind Google Maps, 5 min read. How I built a spam filter in a weekend. See more stories",
+"expect": "likely"
+},
+{
+"from": "Quora Digest",
+"email": "digest-noreply@quora.com",
+"subject": "What is the best way to prepare for placements?",
+"text": "Top answers from your feed. Read more answers. You are receiving this because you follow Engineering.",
+"expect": "likely"
+},
+{
+"from": "Zomato",
+"email": "noreply@zomato.com",
+"subject": "Shivang, rate your recent order and win rewards",
+"text": "Tell us about your experience and get a chance to win Zomato credits. It only takes a minute.",
+"expect": "likely"
+},
+{
+"from": "Growth Club",
+"email": "team@growthclub.co",
+"subject": "Weekly growth newsletter #142",
+"text": "This week: 7 cold email templates that actually work, a free LinkedIn checklist and our upcoming masterclass. Read online.",
+"expect": "likely"
+},
+{
+"from": "Devfolio",
+"email": "community@devfolio.co",
+"subject": "You're invited: Hack the Mountains 2026",
+"text": "Join 3,000 builders at India's biggest hackathon. Prizes worth Rs 10 lakh. Register before 20 Oct.",
+"expect": "likely"
+},
+{
+"from": "Spotify",
+"email": "no-reply@spotify.com",
+"subject": "Your free trial ends in 3 days",
+"text": "Keep listening ad-free. Your Premium trial ends on 11 October. After that it's Rs 119/month. Cancel anytime.",
+"expect": "genuine"
+},
+{
+"from": "HDFC Bank",
+"email": "offers@hdfcbank.net",
+"subject": "You are pre-approved for an HDFC Bank credit card",
+"text": "Dear customer, based on your relationship with us you are pre-approved for a Millennia credit card with lifetime free benefits. Apply in 2 minutes.",
+"expect": "likely"
+}
+]
