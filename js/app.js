@@ -19,7 +19,10 @@ async function init() {
   $("examples").innerHTML = EXAMPLES.map((e, i) => `<button data-i="${i}" title="${esc(e)}">${esc(e.length > 46 ? e.slice(0, 44) + "…" : e)}</button>`).join("");
   $("examples").querySelectorAll("button").forEach((b) => (b.onclick = () => { $("msg").value = EXAMPLES[+b.dataset.i]; check(); }));
   $("msg").value = EXAMPLES[1];
-  const tsv = await fetch("data/sms_spam.tsv").then((r) => r.text());
+  // local copy first; fall back to the copy in the GitHub repository (via jsDelivr)
+  let res = await fetch("data/sms_spam.tsv").catch(() => null);
+  if (!res || !res.ok) res = await fetch("https://cdn.jsdelivr.net/gh/shivangperplexity/sms-spam-detector@main/data/sms_spam.tsv");
+  const tsv = await res.text();
   await new Promise((r) => setTimeout(r, 20));
   train(tsv);
   $("btnCheck").disabled = false;
