@@ -1,5 +1,7 @@
 # SpamShield — SMS Spam & Scam Detector
 
+**Live demo:** https://sms-spam-detector-drab.vercel.app
+
 Paste any SMS and SpamShield tells you whether it looks like spam, which words tipped the decision, which known messages it resembles, and what each of three models thinks. Everything runs in the browser.
 
 Mini project for **Data Mining and Analytics**.
